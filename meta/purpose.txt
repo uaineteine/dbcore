@@ -1,0 +1,1 @@
+The purpose of dbcore is to offer a comprehensive, reliable, and easy-to-use interface for managing DuckDB databases in Python. It streamlines database operations, improves performance, and simplifies tasks such as schema management, query building, connection pooling, and health monitoring for modern data-driven applications.
