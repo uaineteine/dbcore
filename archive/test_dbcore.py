@@ -1,5 +1,5 @@
 """
-Tests for the enhanced dbcore package functionality.
+Tests for the enhanced udbcore package functionality.
 """
 import os
 import tempfile
@@ -10,7 +10,7 @@ from unittest.mock import patch, MagicMock
 # Set up basic logging
 logging.basicConfig(level=logging.WARNING)
 
-from dbcore import *
+from uudbcore import *
 
 class TestDuckDBEnhanced(unittest.TestCase):
     """Test the enhanced DuckDB functionality."""
@@ -454,7 +454,7 @@ class TestModuleInfo(unittest.TestCase):
     def test_module_info(self):
         """Test module information retrieval."""
         info = get_module_info()
-        self.assertEqual(info['name'], 'dbcore')
+        self.assertEqual(info['name'], 'udbcore')
         self.assertEqual(info['version'], '1.0.0')
         self.assertIn('description', info)
 

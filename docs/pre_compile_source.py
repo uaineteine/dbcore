@@ -2,11 +2,11 @@ import sys
 import os
 
 # Append the relative directory to sys.path
-sys.path.append(os.path.join("..", 'dbcore'))
+sys.path.append(os.path.join("..", 'udbcore'))
 from uainepydat import fileio
 from uainepydat import datatransform
 
-relative_directory = "../dbcore"  # Replace with your relative directory path
+relative_directory = "../udbcore"  # Replace with your relative directory path
 
 python_files = fileio.list_files_of_extension(os.path.abspath(relative_directory), "py")
 modules = [os.path.splitext(os.path.basename(filepath))[0] for filepath in python_files]

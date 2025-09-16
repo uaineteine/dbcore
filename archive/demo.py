@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Demonstration of the enhanced dbcore package functionality.
+Demonstration of the enhanced udbcore package functionality.
 """
 
 import os
@@ -10,16 +10,16 @@ import logging
 # Configure logging
 logging.basicConfig(level=logging.INFO, format='%(levelname)s: %(message)s')
 
-# Import the enhanced dbcore functionality
-from foundation_packages.dbcore import (
+# Import the enhanced udbcore functionality
+from foundation_packages.udbcore import (
     DuckDB, ConnectionPool, TransactionManager, BatchOperationManager,
     QueryBuilder, SchemaManager, TableDefinition, ColumnDefinition, ColumnType,
     get_module_info
 )
 
 def main():
-    """Demonstrate enhanced dbcore functionality."""
-    print("=== Enhanced dbcore Package Demonstration ===")
+    """Demonstrate enhanced udbcore functionality."""
+    print("=== Enhanced udbcore Package Demonstration ===")
     print()
     
     # Show module info

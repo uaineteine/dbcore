@@ -13,7 +13,7 @@ from pathlib import Path
 auto_libs_loc = str(Path('..', '..').resolve())
 sys.path.insert(0,auto_libs_loc)
 
-project = 'dbcore'
+project = 'udbcore'
 copyright = '2025, Daniel Stamer-Squair'
 author = 'Daniel Stamer-Squair'
 release = '2025'

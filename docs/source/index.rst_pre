@@ -1,9 +1,9 @@
-.. dbcore documentation master file, created by
+.. udbcore documentation master file, created by
    sphinx-quickstart on Wed Feb 12 22:51:18 2025.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-dbcore
+udbcore
 =========================
 
 <purpose>
@@ -11,7 +11,7 @@ dbcore
 
 .. raw:: html
 
-   <a href="https://pepy.tech/projects/dbcore"><img src="https://static.pepy.tech/badge/dbcore" alt="PyPI Downloads"></a>
+   <a href="https://pepy.tech/projects/udbcore"><img src="https://static.pepy.tech/badge/udbcore" alt="PyPI Downloads"></a>
    <a href="https://www.gnu.org/licenses/gpl-3.0"><img src="https://img.shields.io/badge/License-GPLv3-blue.svg" alt="License: GPL v3"></a>
 
 Description
@@ -24,25 +24,25 @@ Description
    :maxdepth: 2
    :caption: Contents:
 
-.. automodule:: dbcore.db
+.. automodule:: udbcore.db
    :members:
 
-.. automodule:: dbcore.ddb
+.. automodule:: udbcore.ddb
    :members:
 
-.. automodule:: dbcore.connection_pool
+.. automodule:: udbcore.connection_pool
    :members:
 
-.. automodule:: dbcore.monitoring
+.. automodule:: udbcore.monitoring
    :members:
 
-.. automodule:: dbcore.query_builder
+.. automodule:: udbcore.query_builder
    :members:
 
-.. automodule:: dbcore.schema
+.. automodule:: udbcore.schema
    :members:
 
-.. automodule:: dbcore.transactions
+.. automodule:: udbcore.transactions
    :members:
 
 Release History

@@ -1,1 +1,1 @@
-dbcore provides advanced database abstractions and utilities for DuckDB, including connection pooling, transaction management, query building, schema management, and health monitoring. It is designed for robust, efficient, and scalable database operations in Python projects.
+udbcore provides advanced database abstractions and utilities for DuckDB, including connection pooling, transaction management, query building, schema management, and health monitoring. It is designed for robust, efficient, and scalable database operations in Python projects.

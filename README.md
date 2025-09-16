@@ -1,6 +1,6 @@
-# dbcore
+# udbcore
 
-The `dbcore` submodule provides comprehensive database abstractions and utilities for working with DuckDB databases in this project. It offers a clean, robust interface for database management with advanced features like connection pooling, transaction management, query building, schema management, and health monitoring.
+The `udbcore` submodule provides comprehensive database abstractions and utilities for working with DuckDB databases in this project. It offers a clean, robust interface for database management with advanced features like connection pooling, transaction management, query building, schema management, and health monitoring.
 
 ## Contents
 
@@ -18,7 +18,7 @@ The `dbcore` submodule provides comprehensive database abstractions and utilitie
 ## Quick Start
 
 ```python
-from foundation_packages.dbcore import DuckDB
+from foundation_packages.udbcore import DuckDB
 
 # Create a DuckDB database object
 my_db = DuckDB(path='path/to/database.duckdb', name='database.duckdb')
@@ -61,7 +61,7 @@ with db.transaction():
 Efficient connection management for multiple databases:
 
 ```python
-from foundation_packages.dbcore import ConnectionPool, get_global_pool
+from foundation_packages.udbcore import ConnectionPool, get_global_pool
 
 # Use global connection pool
 pool = get_global_pool()
@@ -79,7 +79,7 @@ db = custom_pool.get_connection('/path/to/another_db.duckdb')
 Advanced transaction control with automatic rollback:
 
 ```python
-from foundation_packages.dbcore import TransactionManager, BatchOperationManager
+from foundation_packages.udbcore import TransactionManager, BatchOperationManager
 
 # Transaction management
 db = DuckDB('data.duckdb', 'data.duckdb')
@@ -110,7 +110,7 @@ rows_inserted = bm.batch_insert('users', ['name', 'age'], data)
 Fluent interface for building complex SQL queries:
 
 ```python
-from foundation_packages.dbcore import QueryBuilder, JoinType, OrderDirection
+from foundation_packages.udbcore import QueryBuilder, JoinType, OrderDirection
 
 qb = QueryBuilder()
 
@@ -145,7 +145,7 @@ results = db.run_query(query)
 Programmatic database schema creation and management:
 
 ```python
-from foundation_packages.dbcore import (SchemaManager, TableDefinition, 
+from foundation_packages.udbcore import (SchemaManager, TableDefinition, 
                                        ColumnDefinition, IndexDefinition, ColumnType)
 
 # Initialize schema manager
@@ -186,7 +186,7 @@ exists = sm.table_exists('users')
 Comprehensive database health monitoring and performance statistics:
 
 ```python
-from foundation_packages.dbcore import HealthMonitor
+from foundation_packages.udbcore import HealthMonitor
 
 # Get health monitor from database
 db = DuckDB('data.duckdb', 'data.duckdb')
@@ -213,7 +213,7 @@ slow_queries = monitor.get_slow_queries(threshold_seconds=2.0)
 ### Tilemap Region Database Management
 
 ```python
-from foundation_packages.dbcore import DuckDB, SchemaManager, ColumnDefinition, ColumnType
+from foundation_packages.udbcore import DuckDB, SchemaManager, ColumnDefinition, ColumnType
 
 # Create region database with proper schema
 region_db = DuckDB(f'regions/region_{rx}_{ry}.duckdb', f'region_{rx}_{ry}.duckdb')

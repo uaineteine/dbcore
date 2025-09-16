@@ -1,8 +1,10 @@
 devscripts/key.txt
 dbcore.egg-info/*
+udbcore.egg-info/*
 build/*
 dist/*
 docs/__pycache__/*
 docs/build/*
 dbcore/__pycache__/*
+udbcore/__pycache__/*
 docs/source/index.rst

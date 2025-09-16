@@ -7,8 +7,8 @@ from .schema import *
 from .monitoring import *
 
 module_version = "1.0.0"
-module_name = "dbcore"
-module_description = "The `dbcore` submodule provides core abstractions and utilities for working with database files in this project."
+module_name = "udbcore"
+module_description = "The `udbcore` submodule provides core abstractions and utilities for working with database files in this project."
 
 def check_module_version(version_expecting:str) -> bool:
     """
