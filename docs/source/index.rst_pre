@@ -1,0 +1,34 @@
+.. tstructs documentation master file, created by
+   sphinx-quickstart on Wed Feb 12 22:51:18 2025.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+dbcore
+=========================
+
+<purpose>
+</purpose>
+
+.. raw:: html
+
+   <a href="https://pepy.tech/projects/tstructs"><img src="https://static.pepy.tech/badge/tstructs" alt="PyPI Downloads"></a>
+   <a href="https://www.gnu.org/licenses/gpl-3.0"><img src="https://img.shields.io/badge/License-GPLv3-blue.svg" alt="License: GPL v3"></a>
+
+Description
+=========================
+
+<description>
+</description>
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+.. automodule:: tstructs.[member]
+   :members:
+
+Release History
+=========================
+
+<changelog>
+</changelog>
