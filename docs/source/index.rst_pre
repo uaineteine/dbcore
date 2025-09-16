@@ -24,7 +24,25 @@ Description
    :maxdepth: 2
    :caption: Contents:
 
-.. automodule:: dbcore
+.. automodule:: dbcore.db
+   :members:
+
+.. automodule:: dbcore.ddb
+   :members:
+
+.. automodule:: dbcore.connection_pool
+   :members:
+
+.. automodule:: dbcore.monitoring
+   :members:
+
+.. automodule:: dbcore.query_builder
+   :members:
+
+.. automodule:: dbcore.schema
+   :members:
+
+.. automodule:: dbcore.transactions
    :members:
 
 Release History
