@@ -455,7 +455,7 @@ class TestModuleInfo(unittest.TestCase):
         """Test module information retrieval."""
         info = get_module_info()
         self.assertEqual(info['name'], 'dbcore')
-        self.assertEqual(info['version'], '2.0.0')
+        self.assertEqual(info['version'], '1.0.0')
         self.assertIn('description', info)
 
 

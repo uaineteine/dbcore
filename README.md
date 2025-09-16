@@ -281,8 +281,7 @@ for rx, ry in regions_to_process:
 
 ## Version History
 
-- **v2.0.0** - Major expansion with connection pooling, transactions, query builder, schema management, and health monitoring
-- **v1.0.0** - Initial release with basic DuckDB wrapper functionality
+- **v1.0.0** - Initial release
 
 ## License
 
