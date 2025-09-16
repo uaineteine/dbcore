@@ -1,0 +1,8 @@
+devscripts/key.txt
+dbcore.egg-info/*
+build/*
+dist/*
+docs/__pycache__/*
+docs/build/*
+dbcore/__pycache__/*
+docs/source/index.rst

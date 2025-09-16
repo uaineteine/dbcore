@@ -1,0 +1,3 @@
+sphinx
+sphinex-rtd-theme
+uainepydat
