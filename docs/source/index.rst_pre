@@ -24,8 +24,7 @@ Description
    :maxdepth: 2
    :caption: Contents:
 
-.. automodule:: tstructs.[member]
-   :members:
+.. automodule:: dbcore
 
 Release History
 =========================
