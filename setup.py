@@ -6,7 +6,7 @@ def read_requirements():
 
 setup(
     name='udbcore',
-    version='1.1',
+    version='1.1.1',
     author='Daniel Stamer-Squair',
     author_email='uaine.teine@hotmail.com',
     description='This package provides foundational data structures for representing and manipulating tile maps in 2D and 3D environments. Its primary purpose is to enable efficient spatial organization and management of map data for games, simulations, and applications that require robust handling of coordinates, regions, and chunked regions. By offering specialized classes for coordinates, regions, and chunked regions, the package simplifies the development of systems that need precise and scalable map logic.',
@@ -19,7 +19,7 @@ setup(
         'License :: OSI Approved :: GNU General Public License v3 (GPLv3)',
         'Operating System :: OS Independent',
     ],
-    python_requires='>=3.12',
+    python_requires='>=3.10',
     install_requires=read_requirements(),
     package_data={'': ['LICENSE']}  # Specify the license file here
 )
