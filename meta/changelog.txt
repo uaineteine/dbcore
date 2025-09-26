@@ -1,3 +1,11 @@
+Version 1.1
+^^^^^^^^^^^^^
+
+* Auto connections established on running of queries
+* New temporary table creation function
+* New DB register function
+* New DB unregister function
+
 Version 1.0.0
 ^^^^^^^^^^^^^
 

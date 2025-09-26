@@ -1,10 +1,16 @@
-from .db import DB
-import duckdb
+#base imports
+import random
 import time
 import logging
 from typing import Any, List, Optional, Dict
 from contextlib import contextmanager
 
+#package imports
+import duckdb
+from pandas import DataFrame
+
+#dbcore imports
+from .db import DB
 
 class DuckDB(DB):
     """A DuckDB database file with enhanced functionality."""
@@ -51,6 +57,7 @@ class DuckDB(DB):
         :param parameters: Optional parameters for the query
         :return: Query results
         """
+        self.connect()
         return self._execute_with_retry(
             lambda conn: conn.execute(query, parameters or []).fetchall(),
             query
@@ -64,6 +71,7 @@ class DuckDB(DB):
         :param parameters: Optional parameters for the query
         :return: Single result or None
         """
+        self.connect()
         return self._execute_with_retry(
             lambda conn: conn.execute(query, parameters or []).fetchone(),
             query
@@ -82,6 +90,7 @@ class DuckDB(DB):
             # DuckDB doesn't provide meaningful rowcount, so we return True on success
             return True
         
+        self.connect()
         return self._execute_with_retry(execute_func, query)
     
     def execute_many(self, query: str, parameters_list: List[List[Any]]) -> int:
@@ -99,6 +108,7 @@ class DuckDB(DB):
                 success_count += 1
             return success_count
         
+        self.connect()
         return self._execute_with_retry(execute_func, query)
     
     def _execute_with_retry(self, execute_func, query: str):
@@ -154,6 +164,7 @@ class DuckDB(DB):
         :param alias: Alias for the attached database
         :return: True if successful, False otherwise
         """
+        self.connect()
         try:
             return self._execute_with_retry(
                 lambda conn: conn.execute(f"ATTACH DATABASE '{path}' AS {alias};"),
@@ -170,6 +181,10 @@ class DuckDB(DB):
         :param alias: Alias of the database to detach
         :return: True if successful, False otherwise
         """
+        if self.loaded is False:
+            self.logger.warning("Database not loaded; cannot detach.")
+            return False
+        
         try:
             return self._execute_with_retry(
                 lambda conn: conn.execute(f"DETACH DATABASE {alias};"),
@@ -185,6 +200,7 @@ class DuckDB(DB):
         
         :return: List of table names
         """
+        self.connect()
         try:
             result = self.run_query(
                 "SELECT table_name FROM information_schema.tables WHERE table_schema='main'"
@@ -201,6 +217,7 @@ class DuckDB(DB):
         :param table_name: Name of the table to check
         :return: True if table exists, False otherwise
         """
+        self.connect()
         try:
             result = self.run_query_single(
                 "SELECT 1 FROM information_schema.tables WHERE table_name=? AND table_schema='main'",
@@ -218,6 +235,7 @@ class DuckDB(DB):
         :param table_name: Name of the table
         :return: Number of rows, or -1 if error
         """
+        self.connect()
         try:
             result = self.run_query_single(f"SELECT COUNT(*) FROM {table_name}")
             return result[0] if result else 0
@@ -231,6 +249,7 @@ class DuckDB(DB):
         
         :return: True if successful, False otherwise
         """
+        self.connect()
         try:
             self._execute_with_retry(
                 lambda conn: conn.execute("VACUUM;"),
@@ -248,6 +267,7 @@ class DuckDB(DB):
         
         :return: True if successful, False otherwise
         """
+        self.connect()
         try:
             self._execute_with_retry(
                 lambda conn: conn.execute("ANALYZE;"),
@@ -259,6 +279,51 @@ class DuckDB(DB):
             self.logger.error(f"Failed to analyze database: {e}")
             return False
     
+    @staticmethod
+    def generate_temp_table_name(prefix: str = "temp") -> str:
+        """
+        Generate a unique temporary table name.
+        
+        :param prefix: Prefix for the temporary table name
+        :return: Unique temporary table name
+        """
+        unique_id = random.randint(0, 1000)
+        return f"{prefix}_{unique_id}"
+
+    def register_temp_table(self, df: DataFrame, prefix: str = "temp") -> str:
+        """
+        Register a Pandas DataFrame as a temporary table in the database.
+        
+        :param df: Pandas DataFrame to register
+        :param prefix: Prefix for the temporary table name
+        :return: Name of the registered temporary table
+        """
+        self.connect()
+        table_name = DuckDB.generate_temp_table_name(prefix)
+        try:
+            self.conn.register(table_name, df)
+            self.logger.debug(f"Registered temporary table: {table_name}")
+            return table_name
+        except Exception as e:
+            self.logger.error(f"Failed to register temporary table: {e}")
+            raise
+
+    def unregister_temp_table(self, table_name: str) -> bool:
+        """
+        Unregister a previously registered temporary table.
+        
+        :param table_name: Name of the temporary table to unregister
+        :return: True if successful, False otherwise
+        """
+        self.connect()
+        try:
+            self.conn.unregister(table_name)
+            self.logger.debug(f"Unregistered temporary table: {table_name}")
+            return True
+        except Exception as e:
+            self.logger.error(f"Failed to unregister temporary table {table_name}: {e}")
+            return False
+
     @contextmanager
     def transaction(self):
         """
