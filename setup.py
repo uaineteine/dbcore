@@ -6,7 +6,7 @@ def read_requirements():
 
 setup(
     name='udbcore',
-    version='1.0',
+    version='1.1',
     author='Daniel Stamer-Squair',
     author_email='uaine.teine@hotmail.com',
     description='This package provides foundational data structures for representing and manipulating tile maps in 2D and 3D environments. Its primary purpose is to enable efficient spatial organization and management of map data for games, simulations, and applications that require robust handling of coordinates, regions, and chunked regions. By offering specialized classes for coordinates, regions, and chunked regions, the package simplifies the development of systems that need precise and scalable map logic.',

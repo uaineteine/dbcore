@@ -1,4 +1,4 @@
-Version 1.1
+Version 1.1.0
 ^^^^^^^^^^^^^
 
 * Auto connections established on running of queries
